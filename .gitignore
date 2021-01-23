@@ -1,0 +1,11 @@
+UnityEngine.UI.csproj
+Library
+Logs
+obj
+Packages
+Temp
+.DS_Store
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+ILRuntimeStudy.sln
+UnityEditor.UI.csproj
