@@ -3,6 +3,7 @@ using System.Collections;
 using System.IO;
 using ILRuntime.Runtime.Enviorment;
 using System.Collections.Generic;
+using ILRuntimeDemo;
 //下面这行为了取消使用WWW的警告，Unity2018以后推荐使用UnityWebRequest，处于兼容性考虑Demo依然使用WWW
 #pragma warning disable CS0618
 
@@ -18,7 +19,7 @@ public class HelloWorld : MonoBehaviour
 {
     //不能接受被覆盖的值就暂存在这里面
     //可以接受的话 就存在热更工程里面
-    //public static Dictionary<string, int> ModelDict = new Dictionary<string, int>();
+    public static Dictionary<string, TestClassBase> ModelDict = new Dictionary<string, TestClassBase>();
 
 
 
@@ -38,7 +39,7 @@ public class HelloWorld : MonoBehaviour
     IEnumerator LoadHotFixAssembly()
     {
         //首先实例化ILRuntime的AppDomain，AppDomain是一个应用程序域，每个AppDomain都是一个独立的沙盒
-        if (appdomain == null)
+        //if (appdomain == null)
             appdomain = new ILRuntime.Runtime.Enviorment.AppDomain();
         //正常项目中应该是自行从其他地方下载dll，或者打包在AssetBundle中读取，平时开发以及为了演示方便直接从StreammingAssets中读取，
         //正式发布的时候需要大家自行从其他地方读取dll
@@ -96,6 +97,9 @@ public class HelloWorld : MonoBehaviour
 
     void OnHotFixLoaded()
     {
+        appdomain.RegisterCrossBindingAdaptor(new TestClassBaseAdapter());
+
+
         //HelloWorld，第一次方法调用
         appdomain.Invoke("HotFix_Project.InstanceClass", "StaticFunTest", null, null);
     }

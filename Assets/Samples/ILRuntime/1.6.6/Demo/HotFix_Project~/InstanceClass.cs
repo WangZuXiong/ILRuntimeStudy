@@ -4,9 +4,14 @@ using System.Collections.Generic;
 namespace HotFix_Project
 {
 
-    public class MyModel //: BaseModel
+    public class MyModel : TestClassBase
     {
         public int id;
+
+        public override void TestAbstract(int gg)
+        {
+
+        }
     }
 
 
@@ -37,21 +42,25 @@ namespace HotFix_Project
         // static method
         public static void StaticFunTest()
         {
-            //if (!HelloWorld.ModelDict.ContainsKey("Test"))
-            //    HelloWorld.ModelDict.Add("Test", 1);
+            if (!HelloWorld.ModelDict.ContainsKey("Test"))
+                HelloWorld.ModelDict.Add("Test", new MyModel());
 
 
-            //var t1 = HelloWorld.ModelDict["Test"];
+            var t1 = (MyModel)HelloWorld.ModelDict["Test"];
+
+            UnityEngine.Debug.LogError(t1.id++);
+
+
 
             UnityEngine.Debug.Log(HelloWorld.data++);
 
             //创建Game Object 
             //使用数据t1
 
-             
-           
 
-            //return;
+
+
+            return;
 
             var t = new List<int>() { 1, 2, 3, 4, 5 };
 

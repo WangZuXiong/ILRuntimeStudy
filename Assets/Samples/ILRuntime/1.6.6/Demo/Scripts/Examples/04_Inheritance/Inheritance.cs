@@ -107,6 +107,9 @@ public class Inheritance : MonoBehaviour
         TestClassBase obj;
         Debug.Log("现在我们来注册适配器, 该适配器由ILRuntime/Generate Cross Binding Adapter菜单命令自动生成");
         appdomain.RegisterCrossBindingAdaptor(new TestClassBaseAdapter());
+
+
+
         Debug.Log("现在再来尝试创建一个实例");
         obj = appdomain.Instantiate<TestClassBase>("HotFix_Project.TestInheritance");
         Debug.Log("现在来调用成员方法");
