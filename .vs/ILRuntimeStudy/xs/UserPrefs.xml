@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{DDA17B77-53CB-37FA-1BE3-6285852317F5}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/07_Coroutine/CoroutineAdapter.cs">
+    <Files>
+      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/07_Coroutine/CoroutineAdapter.cs" Line="48" Column="1" />
+      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/LitJson/JsonMapper.cs" />
+      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/03_Delegate/DelegateDemo.cs" />
+      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/02_Invocation/Invocation.cs" />
+      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/04_Inheritance/Inheritance.cs" />
+      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/04_Inheritance/InheritanceAdapter.cs" />
+      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/Editor/ILRuntimeCrossBinding.cs" />
+      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/01_HelloWorld/HelloWorld.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ILRuntimeStudy" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Samples" expanded="True">
+                <Node name="ILRuntime" expanded="True">
+                  <Node name="1.6.6" expanded="True">
+                    <Node name="Demo" expanded="True">
+                      <Node name="Scripts" expanded="True">
+                        <Node name="Examples" expanded="True" />
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.UnityEditor.UI PreferredExecutionTarget="e7ff4f6e-d6ae-4587-b0a0-8a25958f9558" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e7ff4f6e-d6ae-4587-b0a0-8a25958f9558" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
