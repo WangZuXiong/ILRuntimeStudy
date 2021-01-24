@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/Samples/ILRuntime/1.6.6/Demo/_Scenes/Examples/01_HelloWorld.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
