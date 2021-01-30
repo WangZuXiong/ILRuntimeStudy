@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -105,7 +106,12 @@ public class MonoBehaviourDemo : MonoBehaviour
         Debug.Log("因此我们需要挟持AddComponent方法，然后自己实现");
         Debug.Log("我们先销毁掉之前创建的不合法的MonoBehaviour");
         SetupCLRRedirection();
+        //不重定向的化会报错，因为取不到热更Dll里面的类型
+
+
         appdomain.Invoke("HotFix_Project.TestMonoBehaviour", "RunTest", null, gameObject);
+
+        return;
 
         Debug.Log("可以看到已经成功了");
         Debug.Log("下面做另外一个实验");

@@ -77,6 +77,7 @@ public class MonoBehaviourAdapter : CrossBindingAdaptor
         {
             if (!mStartMethodGot)
             {
+                Debug.LogError("instance == null" + (instance == null));
                 mStartMethod = instance.Type.GetMethod("Start", 0);
                 mStartMethodGot = true;
             }

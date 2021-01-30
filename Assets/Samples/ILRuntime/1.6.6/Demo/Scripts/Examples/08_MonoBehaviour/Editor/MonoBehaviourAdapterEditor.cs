@@ -37,6 +37,10 @@ public class MonoBehaviourAdapterEditor : UnityEditor.UI.GraphicEditor
                     {
                         instance[i.Value] = EditorGUILayout.FloatField(name, (float)instance[i.Value]);
                     }
+                    else if (cType == typeof(int))
+                    {
+                        instance[i.Value] = EditorGUILayout.IntField(name, (int)instance[i.Value]);
+                    }
                     else
                         throw new System.NotImplementedException();//剩下的大家自己补吧
                 }
