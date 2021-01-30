@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class DemoWindowController : BasePopup
 {
- 
-
     public async override Task InitView0(GameObject gameObject)
     {
         await base.InitView0(gameObject);
@@ -34,8 +32,8 @@ public class DemoWindowController : BasePopup
         //throw new System.NotImplementedException();
     }
 
-    void Foo()
-    {
-        Debug.LogError("demo window");
-    }
+    //void Foo()
+    //{
+    //    Debug.LogError("demo window");
+    //}
 }

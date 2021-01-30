@@ -208,7 +208,6 @@ GameObject:
   - component: {fileID: 3240583840868724424}
   - component: {fileID: 3240583840868724430}
   - component: {fileID: 3240583840868724431}
-  - component: {fileID: 4329123854937881390}
   m_Layer: 8
   m_Name: DemoWindow_1
   m_TagString: Untagged
@@ -257,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.36078432, g: 0.40392157, b: 0.3529412, a: 0.3137255}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -273,20 +272,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4329123854937881390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3240583840868724425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 440718f754842a849b06cba3f93e0df2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseMask: 1
-  CloseOnClickMask: 1
-  ClearBeforeOpenWindow: 1
-  UseStaticBg: 1
-  MaskColor: {r: 0, g: 0.47058824, b: 0.827451, a: 0.44705883}

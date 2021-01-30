@@ -4,24 +4,17 @@ using UnityEngine;
 
 public class PopupDemo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnGUI()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (GUILayout.Button("Open DemoWindow"))
         {
-            PopupSystem.Instance.GetPopup<DemoWindowController>("DemoWindow");
+            PopupSystem.Instance.ShowPopup<DemoWindowController>("DemoWindow");
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (GUILayout.Button("Open DemoWindow 1"))
         {
-            PopupSystem.Instance.GetPopup<DemoWindowController1>("DemoWindow_1");
+            PopupSystem.Instance.ShowPopup<DemoWindowController1>("DemoWindow_1");
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (GUILayout.Button("CloseAllPopup"))
         {
             PopupSystem.Instance.CloseAllPopup();
         }

@@ -73,7 +73,10 @@ public class PopupSystem : MonoBehaviour
             throw new Exception(string.Format("path::{0} type::{1}", path, typeof(T).ToString()));
         }
 
-        var popup = Activator.CreateInstance<T>();
+        //var popup = Activator.CreateInstance<T>();
+
+        var popup = (T)Activator.CreateInstance(typeof(T));
+
         var entity = Instantiate(original, transform);
 
         await popup.InitView0(entity.gameObject);

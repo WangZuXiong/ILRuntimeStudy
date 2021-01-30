@@ -34,9 +34,6 @@ public abstract class BasePopup : BaseUI
     /// </summary>
     public Color MaskColor = Color.white;
 
-
-    public MonoBehaviour NeedMono = false;
-
     public Transform transform;
 
     public GameObject gameObject;
