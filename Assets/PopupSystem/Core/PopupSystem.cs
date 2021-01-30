@@ -79,15 +79,50 @@ public class PopupSystem : MonoBehaviour
 
         var parent = _parentDict[_index].Item1.transform;
 
+        var entity = Instantiate(original, parent);
+
+        parent.gameObject.SetActive(true);
+        await popup.InitView0(entity.gameObject);
+        await popup.InitData();
+        await popup.InitView1();
+
+        _parentDict[_index].Item1.SetActive(true);
+        _parentDict[_index].Item2.color =  Color.clear;
+        _parentDict[_index].Item3.onClick.RemoveAllListeners();
+
+        _popupDict.Add(_index++, popup);
+        return popup;
+    }
+
+
+    public async Task ShowPopup(string path, BasePopup popup)
+    {
+        if (_index >= _popupMaxCount)
+        {
+            throw new Exception("弹窗过多，建议从设计上减负");
+        }
+
+        var original = Resources.Load<GameObject>(path);
+        if (original == null)
+        {
+            throw new Exception(string.Format("path::{0}", path));
+        }
+
+        var parent = _parentDict[_index].Item1.transform;
+
         if (popup.UICofig.LifeCycle)
         {
             parent.gameObject.SetActive(false);
-            var mono = gameObject.AddComponent<MonoBehaviourEventTrigger>();
-            mono.awake = popup.Awake;
-            mono.onDestroy = popup.OnDestroy;
         }
 
         var entity = Instantiate(original, parent);
+
+        if (popup.UICofig.LifeCycle)
+        {
+            var mono = entity.AddComponent<MonoBehaviourEventTrigger>();
+            mono.awake = popup.Awake;
+            mono.onDestroy = popup.OnDestroy;
+        }
 
         parent.gameObject.SetActive(true);
         await popup.InitView0(entity.gameObject);
@@ -123,10 +158,10 @@ public class PopupSystem : MonoBehaviour
                 _camera.enabled = true;
         }
 
-
         _popupDict.Add(_index++, popup);
-        return popup;
     }
+
+
 
     public void CloseCurrentPopup()
     {

@@ -11,7 +11,7 @@ public class DemoWindowController : BasePopup
         await base.InitView0(gameObject);
 
         var mono = gameObject.AddComponent<MonoBehaviourEventTrigger>();
-        mono.InvokeRepeating("Foo", 0, 20);
+        //mono.InvokeRepeating("Foo", 0, 20);
     }
 
     protected override void AddEvent()

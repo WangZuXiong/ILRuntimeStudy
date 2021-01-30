@@ -126,7 +126,7 @@ public abstract class BasePopup : BaseUI
 
     public virtual void Awake()
     {
-
+        Debug.LogError("BasePopup Awake");
     }
 
     public virtual void OnDestroy()

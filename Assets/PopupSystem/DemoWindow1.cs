@@ -19,9 +19,9 @@ public class DemoWindowController1 : BasePopup
         Debug.LogError("demo window 1");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
+    public override void Awake()
+    {
+        Debug.LogError("DemoWindowController1 Awake");
     }
 }
