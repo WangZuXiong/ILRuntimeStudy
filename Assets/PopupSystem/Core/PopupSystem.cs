@@ -77,21 +77,32 @@ public class PopupSystem : MonoBehaviour
 
         var popup = (T)Activator.CreateInstance(typeof(T));
 
-        var entity = Instantiate(original, transform);
+        var parent = _parentDict[_index].Item1.transform;
 
+        if (popup.UICofig.LifeCycle)
+        {
+            parent.gameObject.SetActive(false);
+            var mono = gameObject.AddComponent<MonoBehaviourEventTrigger>();
+            mono.awake = popup.Awake;
+            mono.onDestroy = popup.OnDestroy;
+        }
+
+        var entity = Instantiate(original, parent);
+
+        parent.gameObject.SetActive(true);
         await popup.InitView0(entity.gameObject);
         await popup.InitData();
         await popup.InitView1();
 
-        if (popup.ClearBeforeOpenWindow)
+        if (popup.UICofig.ClearBeforeOpenWindow)
         {
             CloseAllPopup();
         }
 
         _parentDict[_index].Item1.SetActive(true);
-        _parentDict[_index].Item2.color = popup.UseMask ? popup.MaskColor : Color.clear;
+        _parentDict[_index].Item2.color = popup.UICofig.UseMask ? popup.UICofig.MaskColor : Color.clear;
         _parentDict[_index].Item3.onClick.RemoveAllListeners();
-        if (popup.CloseOnClickMask)
+        if (popup.UICofig.CloseOnClickMask)
         {
             _parentDict[_index].Item3.onClick.AddListener(() =>
             {
@@ -99,7 +110,7 @@ public class PopupSystem : MonoBehaviour
             });
         }
 
-        if (popup.UseStaticBg && _renderTexture == null)
+        if (popup.UICofig.UseStaticBg && _renderTexture == null)
         {
             CreateStaticBg();
             //关闭场景相机
@@ -112,7 +123,7 @@ public class PopupSystem : MonoBehaviour
                 _camera.enabled = true;
         }
 
-        entity.transform.SetParent(_parentDict[_index].Item1.transform);
+
         _popupDict.Add(_index++, popup);
         return popup;
     }
@@ -121,7 +132,7 @@ public class PopupSystem : MonoBehaviour
     {
         if (ToppingPopup != null)
         {
-            if (ToppingPopup.UseStaticBg)
+            if (ToppingPopup.UICofig.UseStaticBg)
             {
                 ClearStaticBg();
                 if (!_camera.enabled)

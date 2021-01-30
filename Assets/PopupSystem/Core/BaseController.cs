@@ -10,37 +10,42 @@ public abstract class BaseUI
 }
 
 
-public abstract class BasePopup : BaseUI
+public struct UICofig
 {
     /// <summary>
     /// 将使用遮罩背景
     /// </summary>
-    public bool UseMask = true;
+    public bool UseMask;
     /// <summary>
     /// 点击背景遮罩也能关闭弹窗
     /// </summary>
-    public bool CloseOnClickMask = false;
+    public bool CloseOnClickMask;
     /// <summary>
     /// 打开改弹窗的前会关闭所有弹窗
     /// </summary>
-    public bool ClearBeforeOpenWindow = false;
-
+    public bool ClearBeforeOpenWindow;
     /// <summary>
     /// 使用静态背景
     /// </summary>
-    public bool UseStaticBg = false;
+    public bool UseStaticBg;
     /// <summary>
     /// 遮罩背景的颜色
     /// </summary>
-    public Color MaskColor = Color.white;
+    public Color MaskColor;
+
+    public bool LifeCycle;
+}
+
+
+public abstract class BasePopup : BaseUI
+{
+    public UICofig UICofig;
 
     public Transform transform;
 
     public GameObject gameObject;
 
     protected Button _btnClose;
-
-
 
     public virtual async Task InitView0(GameObject gameObject)
     {
@@ -119,5 +124,14 @@ public abstract class BasePopup : BaseUI
     /// </summary>
     protected abstract void RemoveEvent();
 
+    public virtual void Awake()
+    {
+
+    }
+
+    public virtual void OnDestroy()
+    {
+
+    }
 }
 

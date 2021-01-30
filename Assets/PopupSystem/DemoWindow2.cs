@@ -12,14 +12,6 @@ public class DemoWindowController : BasePopup
 
         var mono = gameObject.AddComponent<MonoBehaviourEventTrigger>();
         mono.InvokeRepeating("Foo", 0, 20);
-        mono.awake = () =>
-        {
-            Debug.LogError("awake");
-        };
-        mono.onDestroy = () =>
-        {
-            Debug.LogError("onDestroy");
-        };
     }
 
     protected override void AddEvent()
