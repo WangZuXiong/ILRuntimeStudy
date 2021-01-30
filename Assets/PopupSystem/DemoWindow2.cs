@@ -32,8 +32,8 @@ public class DemoWindowController : BasePopup
         //throw new System.NotImplementedException();
     }
 
-    //void Foo()
-    //{
-    //    Debug.LogError("demo window");
-    //}
+    void Foo()
+    {
+        Debug.LogError("demo window");
+    }
 }
