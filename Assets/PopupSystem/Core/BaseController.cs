@@ -76,6 +76,12 @@ public abstract class BasePopup : BaseUI
 
     }
 
+    public BasePopup SetLifeCycle(bool useLifeCycle)
+    {
+       // useLifeCycle
+        return this;
+    }
+
     protected async virtual void OnBtnCloseClick()
     {
         var tweenDuration = PlayFadeOutTween();

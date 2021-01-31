@@ -1,31 +1,21 @@
 ﻿<Properties StartupConfiguration="{DDA17B77-53CB-37FA-1BE3-6285852317F5}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PopupSystem/Core/BaseController.cs">
     <Files>
-      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" Line="108" Column="7" />
-      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourAdapter.cs" Line="80" Column="40" />
+      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" Line="217" Column="14" />
+      <File FileName="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourAdapter.cs" />
+      <File FileName="Assets/PopupSystem/Core/BaseController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ILRuntimeStudy" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Samples" expanded="True">
-                <Node name="ILRuntime" expanded="True">
-                  <Node name="1.6.6" expanded="True">
-                    <Node name="Demo" expanded="True">
-                      <Node name="Editor" expanded="True" />
-                      <Node name="Scripts" expanded="True">
-                        <Node name="Examples" expanded="True">
-                          <Node name="08_MonoBehaviour" expanded="True">
-                            <Node name="Editor" expanded="True" />
-                            <Node name="MonoBehaviourDemo.cs" selected="True" />
-                          </Node>
-                        </Node>
-                      </Node>
-                    </Node>
-                  </Node>
+              <Node name="PopupSystem" expanded="True">
+                <Node name="Core" expanded="True">
+                  <Node name="BaseController.cs" selected="True" />
                 </Node>
               </Node>
+              <Node name="Samples" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -35,12 +25,16 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.UnityEditor.UI PreferredExecutionTarget="e7ff4f6e-d6ae-4587-b0a0-8a25958f9558" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6356b1fb-4801-4b7e-913d-4ea70d62a146" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="de8dd3ed-4464-47d0-b9a3-044aa9dd910b" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/wangzuxiong/Documents/GitHub/ILRuntimeStudy/Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourAdapter.cs" relfile="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourAdapter.cs" line="80" column="1" />
+      <Breakpoint file="/Users/wangzuxiong/Documents/GitHub/ILRuntimeStudy/Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourAdapter.cs" relfile="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourAdapter.cs" line="81" column="1" />
       <Breakpoint file="/Users/wangzuxiong/Documents/GitHub/ILRuntimeStudy/Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" relfile="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" line="107" column="1" />
       <Breakpoint file="/Users/wangzuxiong/Documents/GitHub/ILRuntimeStudy/Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" relfile="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" line="112" column="1" />
+      <Breakpoint file="/Users/wangzuxiong/Documents/GitHub/ILRuntimeStudy/Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" relfile="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" line="204" column="1" />
+      <Breakpoint file="/Users/wangzuxiong/Documents/GitHub/ILRuntimeStudy/Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" relfile="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" line="147" column="1" />
+      <Breakpoint file="/Users/wangzuxiong/Documents/GitHub/ILRuntimeStudy/Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" relfile="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourDemo.cs" line="193" column="1" />
+      <Breakpoint file="/Users/wangzuxiong/Documents/GitHub/ILRuntimeStudy/Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourAdapter.cs" relfile="Assets/Samples/ILRuntime/1.6.6/Demo/Scripts/Examples/08_MonoBehaviour/MonoBehaviourAdapter.cs" line="59" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
