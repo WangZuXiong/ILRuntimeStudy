@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class DemoWindowController : BasePopup
 {
+    public DemoWindowController(string path) : base(path)
+    {
+    }
+
     public async override Task InitView0(GameObject gameObject)
     {
         await base.InitView0(gameObject);

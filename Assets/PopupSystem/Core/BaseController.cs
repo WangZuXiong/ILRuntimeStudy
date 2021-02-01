@@ -6,52 +6,102 @@ using UnityEngine.UI;
 
 public abstract class BaseUI
 {
+    public Transform transform { get; protected set; }
 
+    public GameObject gameObject { get; protected set; }
+
+    public string Path { get; protected set; }
+
+    public BaseUI(string path)
+    {
+        Path = path;
+    }
+
+    //private BaseUI() { }
+
+    //public async Task Create()
+    //{
+    //    var original = Resources.Load<GameObject>(_path);
+    //    gameObject = GameObject.Instantiate(original);
+    //    await Task.Delay(1);
+    //}
 }
 
 
 public struct UICofig
 {
-    /// <summary>
-    /// 将使用遮罩背景
-    /// </summary>
-    public bool UseMask;
-    /// <summary>
-    /// 点击背景遮罩也能关闭弹窗
-    /// </summary>
-    public bool CloseOnClickMask;
-    /// <summary>
-    /// 打开改弹窗的前会关闭所有弹窗
-    /// </summary>
-    public bool ClearBeforeOpenWindow;
-    /// <summary>
-    /// 使用静态背景
-    /// </summary>
-    public bool UseStaticBg;
-    /// <summary>
-    /// 遮罩背景的颜色
-    /// </summary>
-    public Color MaskColor;
 
-    public bool LifeCycle;
 }
 
 
 public abstract class BasePopup : BaseUI
 {
-    public UICofig UICofig;
+    protected BasePopup(string path) : base(path)
+    {
+        Path = path;
+    }
 
-    public Transform transform;
 
-    public GameObject gameObject;
+    //public UICofig UICofig;
 
     protected Button _btnClose;
+    /// <summary>
+    /// 将使用遮罩背景
+    /// </summary>
+    public bool UseMask { get; private set; }
+    /// <summary>
+    /// 点击背景遮罩也能关闭弹窗
+    /// </summary>
+    public bool CloseOnClickMask { get; private set; }
+    /// <summary>
+    /// 打开改弹窗的前会关闭所有弹窗
+    /// </summary>
+    public bool ClearBeforeOpenWindow { get; private set; }
+    /// <summary>
+    /// 使用静态背景
+    /// </summary>
+    public bool UseStaticBg { get; private set; }
+    /// <summary>
+    /// 遮罩背景的颜色
+    /// </summary>
+    public Color MaskColor { get; private set; }
 
-    public virtual async Task InitView0(GameObject gameObject)
+    public bool UseLifeCycle { get; private set; }
+
+
+    public BasePopup SetUseMask(bool useMask)
+    {
+        UseMask = useMask;
+        return this;
+    }
+
+    public BasePopup SetCloseOnClickMask(bool closeOnClickMask)
+    {
+        CloseOnClickMask = closeOnClickMask;
+        return this;
+    }
+
+    public BasePopup SetClearBeforeOpenWindow(bool clearBeforeOpenWindow)
+    {
+        ClearBeforeOpenWindow = clearBeforeOpenWindow;
+        return this;
+    }
+
+    public BasePopup SetLifeCycle(bool useLifeCycle)
+    {
+        UseLifeCycle = useLifeCycle;
+        return this;
+    }
+
+    public void SetEntity(GameObject gameObject)
     {
         this.gameObject = gameObject;
         this.transform = gameObject.transform;
+    }
 
+
+    public virtual async Task InitView0(GameObject gameObject)
+    {
         _btnClose = GetBtnClose();
         if (_btnClose != null)
         {
@@ -76,11 +126,7 @@ public abstract class BasePopup : BaseUI
 
     }
 
-    public BasePopup SetLifeCycle(bool useLifeCycle)
-    {
-       // useLifeCycle
-        return this;
-    }
+
 
     protected async virtual void OnBtnCloseClick()
     {

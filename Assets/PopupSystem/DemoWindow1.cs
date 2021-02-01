@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DemoWindowController1 : BasePopup
 {
+    public DemoWindowController1(string path) : base(path)
+    {
+    }
+
     protected override void AddEvent()
     {
         //throw new System.NotImplementedException();

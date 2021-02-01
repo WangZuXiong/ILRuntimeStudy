@@ -87,7 +87,7 @@ public class PopupSystem : MonoBehaviour
         await popup.InitView1();
 
         _parentDict[_index].Item1.SetActive(true);
-        _parentDict[_index].Item2.color =  Color.clear;
+        _parentDict[_index].Item2.color = Color.clear;
         _parentDict[_index].Item3.onClick.RemoveAllListeners();
 
         _popupDict.Add(_index++, popup);
@@ -110,14 +110,14 @@ public class PopupSystem : MonoBehaviour
 
         var parent = _parentDict[_index].Item1.transform;
 
-        if (popup.UICofig.LifeCycle)
+        if (popup.UseLifeCycle)
         {
             parent.gameObject.SetActive(false);
         }
 
         var entity = Instantiate(original, parent);
 
-        if (popup.UICofig.LifeCycle)
+        if (popup.UseLifeCycle)
         {
             var mono = entity.AddComponent<MonoBehaviourEventTrigger>();
             mono.awake = popup.Awake;
@@ -129,15 +129,15 @@ public class PopupSystem : MonoBehaviour
         await popup.InitData();
         await popup.InitView1();
 
-        if (popup.UICofig.ClearBeforeOpenWindow)
+        if (popup.ClearBeforeOpenWindow)
         {
             CloseAllPopup();
         }
 
         _parentDict[_index].Item1.SetActive(true);
-        _parentDict[_index].Item2.color = popup.UICofig.UseMask ? popup.UICofig.MaskColor : Color.clear;
+        _parentDict[_index].Item2.color = popup.UseMask ? popup.MaskColor : Color.clear;
         _parentDict[_index].Item3.onClick.RemoveAllListeners();
-        if (popup.UICofig.CloseOnClickMask)
+        if (popup.CloseOnClickMask)
         {
             _parentDict[_index].Item3.onClick.AddListener(() =>
             {
@@ -145,7 +145,7 @@ public class PopupSystem : MonoBehaviour
             });
         }
 
-        if (popup.UICofig.UseStaticBg && _renderTexture == null)
+        if (popup.UseStaticBg && _renderTexture == null)
         {
             CreateStaticBg();
             //关闭场景相机
@@ -163,11 +163,74 @@ public class PopupSystem : MonoBehaviour
 
 
 
+    public async Task ShowPopup(BasePopup popup)
+    {
+        if (_index >= _popupMaxCount)
+        {
+            throw new Exception("弹窗过多，建议从设计上减负");
+        }
+
+        var original = Resources.Load<GameObject>(popup.Path);
+        if (original == null)
+        {
+            throw new Exception(string.Format("path::{0}", popup.Path));
+        }
+
+        var parent = _parentDict[_index].Item1.transform;
+
+        if (popup.UseLifeCycle)
+        {
+            parent.gameObject.SetActive(false);
+        }
+
+        var entity = Instantiate(original, parent);
+
+        popup.SetEntity(entity);
+
+        if (popup.UseLifeCycle)
+        {
+            var mono = entity.AddComponent<MonoBehaviourEventTrigger>();
+            mono.awake = popup.Awake;
+            mono.onDestroy = popup.OnDestroy;
+        }
+
+        parent.gameObject.SetActive(true);
+        await popup.InitView0(entity.gameObject);
+        await popup.InitData();
+        await popup.InitView1();
+
+        if (popup.ClearBeforeOpenWindow)
+        {
+            CloseAllPopup();
+        }
+
+        _parentDict[_index].Item1.SetActive(true);
+        _parentDict[_index].Item2.color = popup.UseMask ? popup.MaskColor : Color.clear;
+        _parentDict[_index].Item3.onClick.RemoveAllListeners();
+        if (popup.CloseOnClickMask)
+        {
+            _parentDict[_index].Item3.onClick.AddListener(() =>
+            {
+                CloseCurrentPopup();
+            });
+        }
+
+        else
+        {
+            if (!_camera.enabled)
+                _camera.enabled = true;
+        }
+
+        _popupDict.Add(_index++, popup);
+    }
+
+
+
     public void CloseCurrentPopup()
     {
         if (ToppingPopup != null)
         {
-            if (ToppingPopup.UICofig.UseStaticBg)
+            if (ToppingPopup.UseStaticBg)
             {
                 ClearStaticBg();
                 if (!_camera.enabled)
@@ -238,5 +301,11 @@ public class PopupSystem : MonoBehaviour
         Resources.UnloadUnusedAssets();
         if (!_camera.enabled)
             _camera.enabled = true;
+    }
+
+
+    public Transform GetParent()
+    {
+        return _parentDict[++_index].Item1.transform;
     }
 }
